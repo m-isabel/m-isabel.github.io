@@ -1,0 +1,111 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title>Feed.</title>
+		<style type="text/css">
+			* {
+				margin:0;
+				padding:0;
+			}
+			body {
+				background:#333;
+				cursor:pointer;
+				height:100%;
+			}
+			canvas {
+				width:800px;
+				position:relative;
+				margin:0 auto;
+				display:block;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas width="800" height="600"></canvas>
+		<audio><source src="nom.mp3" type="audio/mpeg"></audio>
+		<script type="text/javascript">
+			var reward = [];
+			reward[3] = "Good Job!";
+			reward[1] = "Nice Work!";
+			reward[0] = "Keep Going!";
+			reward[2] = "Hooray!";
+			var canvas = document.getElementsByTagName("canvas")[0];
+			var audio = document.getElementsByTagName("audio")[0];
+			var ctx = canvas.getContext("2d");
+			var michael = [];
+			var left2load = 3;
+			var hasdog = false;
+			michael[0] = new Image();
+			michael[0].src = "img/sally0.png";
+			michael[0].onload = function() { left2load--; };
+			michael[1] = new Image();
+			michael[1].src = "img/sally1.png";
+			michael[1].onload = function() { left2load--; };
+			hotdog = new Image();
+			hotdog.src = "img/cupcake.png";
+			hotdog.onload = function() { left2load--; };
+			var score = 0;
+			
+			var mousepos = { x:0,y:0 };
+			canvas.addEventListener('mousemove', function(evt) {
+				mousepos = getMousePos(canvas, evt);
+			});
+			
+			waitforload();
+			
+			function waitforload() {
+				if(left2load>0)
+					window.setTimeout(waitforload,10);
+				else
+					onload();
+			}
+			
+			function getMousePos(canvas, evt) {
+				var rect = canvas.getBoundingClientRect();
+				return {
+					x: evt.clientX - rect.left,
+					y: evt.clientY - rect.top
+				};
+			}
+			
+			function onload() {
+				ctx.drawImage(michael[0],175,75);
+				loop();
+			}
+			
+			function loop() {
+				ctx.clearRect(0,0,800,600);
+				//check for mouse collision
+				if(Math.sqrt(Math.pow(mousepos.x-350,2)+Math.pow(mousepos.y-250,2))<225 && hasdog) {
+					if(Math.sqrt(Math.pow(mousepos.x-350,2)+Math.pow(mousepos.y-250,2))<50) {
+						hasdog=false;
+						score++;
+						document.title = "Score: "+score;
+						document.body.style.cursor = "pointer";
+						ctx.drawImage(michael[0],175,75);
+						audio.play();
+						/*try {
+							alert(reward[score%4]);
+						} catch(err) {
+							console.log(reward[score%4]);
+						}*/
+					}
+					 else ctx.drawImage(michael[1],175,75);
+				} else {
+					ctx.drawImage(michael[0],175,75);
+				}
+				if(!hasdog) {
+					ctx.drawImage(hotdog,0,500);
+					if(Math.sqrt(Math.pow(mousepos.x-64,2)+Math.pow(mousepos.y-550,2))<55) {
+						hasdog = true;
+						document.body.style.cursor = "url(img/cupcake.png),auto";
+					}
+				}
+				
+				
+				window.setTimeout(loop,16);
+			}
+		</script>
+	</body>
+</html>
