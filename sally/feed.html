@@ -77,6 +77,7 @@
 		<audio><source src="nom2.wav" type="audio/wav"></audio>
 		
 		<script type="text/javascript">
+			var count = 1;
 			var reward = [];
 			reward[3] = "Good Job!";
 			reward[1] = "Nice Work!";
@@ -137,14 +138,18 @@
 						document.body.style.cursor = "pointer";
 						ctx.drawImage(sally[0],175,75);
 						audio.play();
+						count++;
 						/*try {
 							alert(reward[score%4]);
 						} catch(err) {
 							console.log(reward[score%4]);
 						}*/
 					}
-					 else ctx.drawImage(sally[1],175,75);
-				} else {
+					else {
+						ctx.drawImage(sally[1],175,75);
+					}
+				} 
+				else {
 					ctx.drawImage(sally[0],175,75);
 				}
 				if(!hascupcake) {
@@ -152,12 +157,14 @@
 					if(Math.sqrt(Math.pow(mousepos.x-64,2)+Math.pow(mousepos.y-550,2))<55) {
 						hascupcake = true;
 						document.body.style.cursor = "url(img/cupcake.png),auto";
+
 					}
 				}
 				window.setTimeout(loop,16);
 			}
 		</script>
 		<h1>Feed me some cupcakes please! </h1>
+		<h3>P.S. This doesn't work well on phones. </h3>
 		</center>
 		</div>
 
@@ -165,7 +172,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; Sally 2014</p>
                 </div>
             </div>
         </div>
