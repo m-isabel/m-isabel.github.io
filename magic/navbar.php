@@ -1,5 +1,5 @@
+<div class="navbar-wrapper">
 <div class="container">
-
   <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container">
       <div class="navbar-header">
@@ -12,7 +12,7 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html">Home1</a></li>
           <li><a href="schedule.html">Schedule</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -20,5 +20,5 @@
       </div>
     </div>
   </nav>
-
+</div>
 </div>
