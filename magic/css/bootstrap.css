@@ -1120,7 +1120,6 @@ figure {
 img {
   vertical-align: middle;
 }
-.img-responsive,
 .thumbnail > img,
 .thumbnail a > img,
 .carousel-inner > .item > img,
@@ -1129,6 +1128,14 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+
 .img-rounded {
   border-radius: 6px;
 }
