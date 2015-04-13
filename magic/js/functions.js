@@ -10,4 +10,5 @@ function sendEmail() {
              + "?subject=" + encodeURIComponent("Contact Form Response")
              + "&body=" + encodeURIComponent(message+"\n\nFrom:\n"+name+"\n"+email);
   window.location.href = link;
+  console.log(link);
 }
