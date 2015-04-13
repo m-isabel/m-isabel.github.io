@@ -70,12 +70,12 @@
 
                 <div class="control-group"><label for="text" class="control-label required">Message</label>
                   <div class="controls">
-                    <textarea name="text" id="text" rows="6" class="form-control" cols="80"></textarea>
+                    <textarea name="text" id="text" rows="6" class="form-control" cols="80" id="contact-message"></textarea>
                   </div>
                 </div>
                 <br>
                 <div class="form-actions">
-                  <button class="btn btn-lg btn-primary btn-block" id="sendButton">Send</button>
+                  <button class="btn btn-lg btn-primary btn-block" id="sendButton" onclick="sendEmail()">Send</button>
                 </div>
               </form>
             </div>
@@ -109,5 +109,16 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="js/functions.js"></script>
+    <script>
+      function sendEmail() {
+        var name = $("#contact-name").val();
+        var email = $("#contact-email").val();
+        var message = $("#contact-message").val();
+        var link = "mailto:CSmagicMentors@gmail.com"
+                   + "?subject=" + encodeURIComponent("Contact Form Response")
+                   + "&body=" + encodeURIComponent(message+"\n\nFrom:\n"+name+"\n"+email);
+        window.location.href = link;
+      }
+    </script>
   </body>
 </html>
