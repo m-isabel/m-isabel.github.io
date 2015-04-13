@@ -44,12 +44,12 @@
 			<div class="container">
 				<div class="col-md-4"></div>
 				<div class="col-md-4">
-					<form>
+					<form name="contact_form">
 						<h2 class="form-signin-heading">Contact Us</h2>
 						<input id="contact-name" type="text" class="form-control" value="" placeholder="John Doe"><br>
 						<input id="contact-email" type="text" class="form-control" name="email" value="" placeholder="email@purdue.edu"><br>
 						<textarea id="contact-message" rows="6" class="form-control" cols="80" placeholder="Hi! My name is Joe Doe..." ></textarea><br>
-						<button class="btn btn-lg btn-primary btn-block"  onclick= "sendEmail()">Send</button>
+						<button class="btn btn-lg btn-primary btn-block">Send</button>
 					</form>
 				</div>
 			</div>
@@ -79,7 +79,7 @@
 		<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 		<script src="js/functions.js"></script>
 		<script>
-			function sendEmail() {
+			document.forms.contact_form.onsubmit = function (e) {
 			  var name = $("#contact-name").val();
 			  var email = $("#contact-email").val();
 			  var message = $("#contact-message").val();
@@ -88,7 +88,9 @@
 			             + "&body=" + encodeURIComponent(message+"\n\nFrom:\n"+name+"\n"+email);
 			  window.location.href = link;
 			  console.log(link);
-			}
+				e.preventDefault();
+				return false;
+			};
 		</script>
 	</body>
 </html>
