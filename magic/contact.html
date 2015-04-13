@@ -109,16 +109,5 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="js/functions.js"></script>
-    <script>
-      function sendEmail() {
-        var name = $("#contact-name").val();
-        var email = $("#contact-email").val();
-        var message = $("#contact-message").val();
-        var link = "mailto:CSmagicMentors@gmail.com"
-                   + "?subject=" + encodeURIComponent("Contact Form Response")
-                   + "&body=" + encodeURIComponent(message+"\n\nFrom:\n"+name+"\n"+email);
-        window.location.href = link;
-      }
-    </script>
   </body>
 </html>
