@@ -42,31 +42,15 @@
 		<!-- contact form -->
 		<div class="container marketing">
 			<div class="container">
-				<div id="contact" class="contact_page">
-					<div class="container">
-						<div class="col-md-4">
-						</div>
-						<div class="col-md-4">
-							<form enctype="application/x-www-form-urlencoded" class="form-horizontal"><div class="padded">
-									<h2 class="form-signin-heading">Contact Us</h2>
-									<label for="text" class="control-label required">Name</label>
-									<input id="contact-name" type="text" class="form-control" name="name" value="" placeholder="John Doe">
-									<label for="text" class="control-label required">Email</label>
-									<input id="contact-email" type="text" class="form-control" name="email" value="" placeholder="email@purdue.edu">
-
-									<div class="control-group"><label for="text" class="control-label required">Message</label>
-										<div class="controls">
-											<textarea name="text" id="text" rows="6" class="form-control" cols="80" id="contact-message"></textarea>
-										</div>
-									</div>
-									<br>
-									<div class="form-actions">
-										<button class="btn btn-lg btn-primary btn-block" id="sendButton" onclick="sendEmail()">Send</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<form>
+						<h2 class="form-signin-heading">Contact Us</h2>
+						<input id="contact-name" type="text" class="form-control" value="" placeholder="John Doe"><br>
+						<input id="contact-email" type="text" class="form-control" name="email" value="" placeholder="email@purdue.edu"><br>
+						<textarea id="contact-message" rows="6" class="form-control" cols="80" placeholder="Hi! My name is Joe Doe..." ></textarea><br>
+						<button class="btn btn-lg btn-primary btn-block"  onclick= "sendEmail()">Send</button>
+					</form>
 				</div>
 			</div>
 			<hr class="featurette-divider">
@@ -88,12 +72,23 @@
 		</div><!-- /.container -->
 
 
-		<!-- Bootstrap core JavaScript
-		================================================== -->
+		<!-- Bootstrap core JavaScript ================================================== -->
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 		<script src="js/functions.js"></script>
+		<script>
+			function sendEmail() {
+			  var name = $("#contact-name").val();
+			  var email = $("#contact-email").val();
+			  var message = $("#contact-message").val();
+			  var link = "mailto:m.isabellee@gmail.com"
+			             + "?subject=" + encodeURIComponent("Contact Form Response")
+			             + "&body=" + encodeURIComponent(message+"\n\nFrom:\n"+name+"\n"+email);
+			  window.location.href = link;
+			  console.log(link);
+			}
+		</script>
 	</body>
 </html>
