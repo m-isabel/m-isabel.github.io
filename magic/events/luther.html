@@ -125,6 +125,10 @@
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="../js/bootstrap.min.js"></script>
 		<script src="../js/holder.js"></script>
-		<script src="../js/functions.js"></script>
+		<script>
+			$(document).ready(function(){
+			  $('#menu').load("../navbar.html");
+			});
+		</script>
 	</body>
 </html>
